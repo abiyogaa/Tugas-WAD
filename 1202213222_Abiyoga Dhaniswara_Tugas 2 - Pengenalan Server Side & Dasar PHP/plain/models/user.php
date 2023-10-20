@@ -24,10 +24,10 @@ class User {
         $blobData = $this->image;
         $mimeType = 'image/jpeg';
         if (substr($blobData, 0, 4) === "\x89PNG") {
-            $mimeType = 'image/png'; // If the binary data starts with the PNG signature
+            $mimeType = 'image/png';
         }
         $base64Data = base64_encode($blobData);
-        return '<img src="data:' . $mimeType . ';base64,' . $base64Data . '" alt="Embedded Image" width="200" height="150">';
+        return 'data:' . $mimeType . ';base64,' . $base64Data;
     }
 }
 ?>
